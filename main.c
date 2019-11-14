@@ -3,19 +3,17 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int main(void) {
+int main(void) 
+{
+	int i=100;
+	int *p=&i;
+	int **q=&p;
 	
-	char buffer[8];
-	double*pd;
-	int*pi;
+	*p=200;
+	printf("i=%d,*p=%d,**q=%d\n",i,*p,**q);
 	
-	pd=(double*)buffer;
-	*pd=3.14;
-	printf("%f\n",*(double*)buffer);
+	**q=300;
+	printf("i=%d,*p=%d,**q=%d\n",i,*p,**q);
 	
-	pi=(int*)buffer;
-	*pi=123;
-	*(pi+1)=456;
-	printf("%d %d\n",*(int*)buffer,*((int*)buffer+1));
-	return 0;
+	return 0;	
 }
