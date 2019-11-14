@@ -2,17 +2,47 @@
 #include <stdlib.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
-char *proverb="All that glisters is not gold.";
-void setPrinter(char **q)
+int sum(int a, int b)
 {
-	*q=proverb;
+	return a+b;
+}
+int min(int a, int b)
+{
+	return a-b;
+}
+int mul(int a, int b)
+{
+	return a*b;
+}
+int divd(int a, int b)
+{
+	return a/b;
 }
 
-int main(void) 
+int main(void)
 {
-	char *p="zzz";
-	setPrinter(&p);
-	printf("%s\n",p);
+	int a, b;
+	char op;
 	
-	return 0;
+	int(*pf)(int,int);
+	printf("caculate what:");
+	scanf("%d %c %d",&a, &op,&b);
+	
+	switch(op)
+	{
+		case '+':
+			pf=sum;
+			break;
+		case '-':
+			pf=min;
+			break;
+		case '*':
+			pf=mul;
+			break;
+		case '/':
+			pf=divd;
+			break;
+	}
+	
+	printf("%d\n",pf(a,b));
 }
